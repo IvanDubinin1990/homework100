@@ -4,7 +4,7 @@ public class Main {
 
         Main q1 = new Main();
 
-        String[] roles = {"Городничий", "Аммос Федорович", "Артемий Филиппович", "Лука Лукич"};
+        String[] roles = {"Городничий", "Аммос Федорович", "Артемий Филиппович", "Лука Лукич", "Лука"};
 
         String[] textLines = {"Городничий: Я пригласил вас, господа, с тем, чтобы сообщить вам пренеприятное известие: к нам едет ревизор. ",
                 "Аммос Федорович: Как ревизор? ",
@@ -12,7 +12,8 @@ public class Main {
                 "Городничий: Ревизор из Петербурга, инкогнито. И еще с секретным предписаньем. ",
                 "Аммос Федорович: Вот те на! ",
                 "Артемий Филиппович: Вот не было заботы, так подай! ",
-                "Лука Лукич: Господи боже! еще и с секретным предписаньем!"};
+                "Лука Лукич: Господи боже! еще и с секретным предписаньем!",
+                "Лука: Пойду пожру"};
 
         System.out.println(q1.printTextPerRole(roles, textLines));
 
@@ -30,10 +31,8 @@ public class Main {
 
         for (String s : roles) {
             x += s + ":\n";
-//            System.out.println(s + ":");
             for (int i = 0; i < textLines.length; i++) {
-                if (textLines[i].startsWith(s,3)) {
-//                    System.out.println(textLines[i].replace(s + ": ", ""));
+                if (textLines[i].startsWith(s, 3) && s.equals(textLines[i].substring(textLines[i].indexOf(s), textLines[i].indexOf(":")))) {
                     x += textLines[i].replaceFirst(s + ": ", "") + "\n";
                 }
             }
